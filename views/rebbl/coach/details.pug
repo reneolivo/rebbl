@@ -30,12 +30,12 @@ block scripts
 
 block content
   div(class="container")
-    - if(coachDetails && coachDetails.roles && coachDetails.roles.indexOf("admin")>-1)
-      h1(class="highlight") &nbsp;
-        img(style="float:left" src="https://cdn2.rebbl.net/images/skills/StaffMember.png")
-        = coachDetails.coach
-    - else
-      h1(class="highlight")= coachDetails  ? coachDetails.coach : name
+    h1(class="highlight") &nbsp;
+      - if(coachDetails && coachDetails.roles && coachDetails.roles.indexOf("admin")>-1)
+        img(style="float:left" src="https://cdn2.rebbl.net/images/skills/StaffMember.png" title="Admin")
+      - if(coachDetails && coachDetails.roles && coachDetails.roles.indexOf("clanleader")>-1)
+        img(style="float:left" src="https://cdn2.rebbl.net/images/skills/CoachSkill.png" title="Clan Leader")
+      = coachDetails ? coachDetails.coach : name
     h3 Contact Data
     div
       label(for="coach") Blood Bowl 2 coach name
